@@ -95,6 +95,8 @@ namespace Config
 
                 checkDisableLod.Checked = _conf.Read("DISABLE_LOD", false);
 
+            checkDiscord.Checked = _conf.Read("DISCORD_INTEGRATION", true);
+
                 Utils.Utils.SafeSetIndex(comboReShade, _conf.Read("RESHADE_LEVEL", 0));
 #if !DEBUG
             }
@@ -280,6 +282,12 @@ namespace Config
             if (_ready)
                 _conf.Write("DISABLE_LOD", checkDisableLod.Checked);
         }
+        private void checkDiscord_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("DISCORD_INTEGRATION", checkDiscord.Checked);
+
+        }
 
 
         string[] ReShadePresetNames =
@@ -359,5 +367,7 @@ namespace Config
 
             }
         }
+
+
     }
 }

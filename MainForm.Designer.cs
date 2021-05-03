@@ -62,13 +62,14 @@
             this.checkLightMode = new System.Windows.Forms.CheckBox();
             this.checkFastText = new System.Windows.Forms.CheckBox();
             this.checkDisableLod = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboReShade = new System.Windows.Forms.ComboBox();
             this.GFXContainer = new System.Windows.Forms.GroupBox();
             this.audioContainer = new System.Windows.Forms.GroupBox();
             this.GFXContainer2 = new System.Windows.Forms.GroupBox();
             this.gameContainer = new System.Windows.Forms.GroupBox();
             this.advContainer = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboReShade = new System.Windows.Forms.ComboBox();
+            this.checkDiscord = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSFX)).BeginInit();
             this.GFXContainer.SuspendLayout();
@@ -490,6 +491,33 @@
             this.checkDisableLod.UseVisualStyleBackColor = true;
             this.checkDisableLod.CheckedChanged += new System.EventHandler(this.checkDisableLod_CheckedChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(175, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 14);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Reshade";
+            this.toolTip.SetToolTip(this.label1, "Sets the distance you can view far away.");
+            // 
+            // comboReShade
+            // 
+            this.comboReShade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboReShade.FormattingEnabled = true;
+            this.comboReShade.Items.AddRange(new object[] {
+            "Off",
+            "Low",
+            "Mid",
+            "Extreme"});
+            this.comboReShade.Location = new System.Drawing.Point(178, 40);
+            this.comboReShade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboReShade.Name = "comboReShade";
+            this.comboReShade.Size = new System.Drawing.Size(147, 22);
+            this.comboReShade.TabIndex = 19;
+            this.toolTip.SetToolTip(this.comboReShade, "Sets the distance you can view far away.");
+            this.comboReShade.SelectedIndexChanged += new System.EventHandler(this.comboReShade_SelectedIndexChanged);
+            // 
             // GFXContainer
             // 
             this.GFXContainer.Controls.Add(this.checkHFR);
@@ -536,6 +564,7 @@
             // 
             // gameContainer
             // 
+            this.gameContainer.Controls.Add(this.checkDiscord);
             this.gameContainer.Controls.Add(this.checkLightMode);
             this.gameContainer.Controls.Add(this.checkShowname);
             this.gameContainer.Controls.Add(this.checkShowDmg);
@@ -569,32 +598,17 @@
             this.advContainer.TabStop = false;
             this.advContainer.Text = "Advanced";
             // 
-            // label1
+            // checkDiscord
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(175, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 14);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Reshade";
-            this.toolTip.SetToolTip(this.label1, "Sets the distance you can view far away.");
-            // 
-            // comboReShade
-            // 
-            this.comboReShade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboReShade.FormattingEnabled = true;
-            this.comboReShade.Items.AddRange(new object[] {
-            "Off",
-            "Low",
-            "Mid",
-            "Extreme"});
-            this.comboReShade.Location = new System.Drawing.Point(178, 40);
-            this.comboReShade.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboReShade.Name = "comboReShade";
-            this.comboReShade.Size = new System.Drawing.Size(147, 22);
-            this.comboReShade.TabIndex = 19;
-            this.toolTip.SetToolTip(this.comboReShade, "Sets the distance you can view far away.");
-            this.comboReShade.SelectedIndexChanged += new System.EventHandler(this.comboReShade_SelectedIndexChanged);
+            this.checkDiscord.AutoSize = true;
+            this.checkDiscord.Location = new System.Drawing.Point(184, 92);
+            this.checkDiscord.Name = "checkDiscord";
+            this.checkDiscord.Size = new System.Drawing.Size(130, 18);
+            this.checkDiscord.TabIndex = 28;
+            this.checkDiscord.Text = "Discord Integration";
+            this.toolTip.SetToolTip(this.checkDiscord, "When active, Discord will show to others when you\'re in game");
+            this.checkDiscord.UseVisualStyleBackColor = true;
+            this.checkDiscord.CheckedChanged += new System.EventHandler(this.checkDiscord_CheckedChanged);
             // 
             // MainForm
             // 
@@ -675,6 +689,7 @@
         private System.Windows.Forms.CheckBox checkDisableLod;
         private System.Windows.Forms.ComboBox comboReShade;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkDiscord;
     }
 }
 
