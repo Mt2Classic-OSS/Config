@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.checkShowname = new System.Windows.Forms.CheckBox();
             this.checkShowDmg = new System.Windows.Forms.CheckBox();
             this.checkShowChat = new System.Windows.Forms.CheckBox();
             this.checkShowshopnames = new System.Windows.Forms.CheckBox();
@@ -71,6 +70,8 @@
             this.gameContainer = new System.Windows.Forms.GroupBox();
             this.advContainer = new System.Windows.Forms.GroupBox();
             this.checkRenderTarget = new System.Windows.Forms.CheckBox();
+            this.labelShowName = new System.Windows.Forms.Label();
+            this.comboShowName = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSFX)).BeginInit();
             this.GFXContainer.SuspendLayout();
@@ -86,22 +87,10 @@
             this.toolTip.InitialDelay = 0;
             this.toolTip.ReshowDelay = 100;
             // 
-            // checkShowname
-            // 
-            this.checkShowname.AutoSize = true;
-            this.checkShowname.Location = new System.Drawing.Point(5, 22);
-            this.checkShowname.Name = "checkShowname";
-            this.checkShowname.Size = new System.Drawing.Size(138, 18);
-            this.checkShowname.TabIndex = 0;
-            this.checkShowname.Text = "Always Show Names";
-            this.toolTip.SetToolTip(this.checkShowname, "Always show the names of NPCs, Players and Dropped Items");
-            this.checkShowname.UseVisualStyleBackColor = true;
-            this.checkShowname.CheckedChanged += new System.EventHandler(this.CheckShownameCheckedChanged);
-            // 
             // checkShowDmg
             // 
             this.checkShowDmg.AutoSize = true;
-            this.checkShowDmg.Location = new System.Drawing.Point(6, 47);
+            this.checkShowDmg.Location = new System.Drawing.Point(6, 21);
             this.checkShowDmg.Name = "checkShowDmg";
             this.checkShowDmg.Size = new System.Drawing.Size(105, 18);
             this.checkShowDmg.TabIndex = 1;
@@ -113,7 +102,7 @@
             // checkShowChat
             // 
             this.checkShowChat.AutoSize = true;
-            this.checkShowChat.Location = new System.Drawing.Point(6, 72);
+            this.checkShowChat.Location = new System.Drawing.Point(6, 46);
             this.checkShowChat.Name = "checkShowChat";
             this.checkShowChat.Size = new System.Drawing.Size(85, 18);
             this.checkShowChat.TabIndex = 2;
@@ -456,7 +445,7 @@
             // checkLightMode
             // 
             this.checkLightMode.AutoSize = true;
-            this.checkLightMode.Location = new System.Drawing.Point(6, 96);
+            this.checkLightMode.Location = new System.Drawing.Point(6, 70);
             this.checkLightMode.Name = "checkLightMode";
             this.checkLightMode.Size = new System.Drawing.Size(88, 18);
             this.checkLightMode.TabIndex = 27;
@@ -577,10 +566,11 @@
             // 
             // gameContainer
             // 
+            this.gameContainer.Controls.Add(this.labelShowName);
             this.gameContainer.Controls.Add(this.checkRenderTarget);
+            this.gameContainer.Controls.Add(this.comboShowName);
             this.gameContainer.Controls.Add(this.checkDiscord);
             this.gameContainer.Controls.Add(this.checkLightMode);
-            this.gameContainer.Controls.Add(this.checkShowname);
             this.gameContainer.Controls.Add(this.checkShowDmg);
             this.gameContainer.Controls.Add(this.checkShowChat);
             this.gameContainer.Controls.Add(this.checkShowshopnames);
@@ -615,7 +605,7 @@
             // checkRenderTarget
             // 
             this.checkRenderTarget.AutoSize = true;
-            this.checkRenderTarget.Location = new System.Drawing.Point(6, 120);
+            this.checkRenderTarget.Location = new System.Drawing.Point(6, 94);
             this.checkRenderTarget.Name = "checkRenderTarget";
             this.checkRenderTarget.Size = new System.Drawing.Size(114, 18);
             this.checkRenderTarget.TabIndex = 29;
@@ -624,6 +614,32 @@
         "m previews. Disable it if you\'re having issues");
             this.checkRenderTarget.UseVisualStyleBackColor = true;
             this.checkRenderTarget.CheckedChanged += new System.EventHandler(this.checkRenderTarget_CheckedChanged);
+            // 
+            // labelShowName
+            // 
+            this.labelShowName.AutoSize = true;
+            this.labelShowName.Location = new System.Drawing.Point(6, 121);
+            this.labelShowName.Name = "labelShowName";
+            this.labelShowName.Size = new System.Drawing.Size(72, 14);
+            this.labelShowName.TabIndex = 21;
+            this.labelShowName.Text = "Show name";
+            this.toolTip.SetToolTip(this.labelShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
+            // 
+            // comboShowName
+            // 
+            this.comboShowName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboShowName.FormattingEnabled = true;
+            this.comboShowName.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Extra"});
+            this.comboShowName.Location = new System.Drawing.Point(6, 141);
+            this.comboShowName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboShowName.Name = "comboShowName";
+            this.comboShowName.Size = new System.Drawing.Size(181, 22);
+            this.comboShowName.TabIndex = 20;
+            this.toolTip.SetToolTip(this.comboShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
+            this.comboShowName.SelectedIndexChanged += new System.EventHandler(this.comboShowName_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -671,7 +687,6 @@
         private System.Windows.Forms.CheckBox checkShowshopnames;
         private System.Windows.Forms.CheckBox checkShowChat;
         private System.Windows.Forms.CheckBox checkShowDmg;
-        private System.Windows.Forms.CheckBox checkShowname;
         private System.Windows.Forms.Label labelMusic;
         private System.Windows.Forms.TrackBar trackSFX;
         private System.Windows.Forms.Label labelSFX;
@@ -706,6 +721,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkDiscord;
         private System.Windows.Forms.CheckBox checkRenderTarget;
+        private System.Windows.Forms.Label labelShowName;
+        private System.Windows.Forms.ComboBox comboShowName;
     }
 }
 

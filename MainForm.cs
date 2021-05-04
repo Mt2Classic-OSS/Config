@@ -64,7 +64,7 @@ namespace Config
                 // SFX Volume
                 trackSFX.Value = _conf.Read("VOICE_VOLUME", 5);
                 // Always ShowName
-                checkShowname.Checked = _conf.Read("ALWAYS_VIEW_NAME", false);
+                Utils.Utils.SafeSetIndex(comboShowName, _conf.Read("ALWAYS_VIEW_NAME", 0));
                 // Show damage
                 checkShowDmg.Checked = _conf.Read("SHOW_DAMAGE", true);
                 // View Chat
@@ -159,11 +159,7 @@ namespace Config
                 _conf.Write("WINDOWED", checkWindowed.Checked);
         }
 
-        private void CheckShownameCheckedChanged(object sender, EventArgs e)
-        {
-            if (_ready)
-                _conf.Write("ALWAYS_VIEW_NAME", checkShowname.Checked);
-        }
+
 
         private void CheckShowDmgCheckedChanged(object sender, EventArgs e)
         {
@@ -374,5 +370,12 @@ namespace Config
             if (_ready)
                 _conf.Write("RENDER_TARGET", checkRenderTarget.Checked);
         }
+
+        private void comboShowName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("ALWAYS_VIEW_NAME", comboShowName.SelectedIndex);
+        
+         }
     }
 }
