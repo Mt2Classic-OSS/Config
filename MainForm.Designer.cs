@@ -64,12 +64,13 @@
             this.checkDisableLod = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboReShade = new System.Windows.Forms.ComboBox();
+            this.checkDiscord = new System.Windows.Forms.CheckBox();
             this.GFXContainer = new System.Windows.Forms.GroupBox();
             this.audioContainer = new System.Windows.Forms.GroupBox();
             this.GFXContainer2 = new System.Windows.Forms.GroupBox();
             this.gameContainer = new System.Windows.Forms.GroupBox();
             this.advContainer = new System.Windows.Forms.GroupBox();
-            this.checkDiscord = new System.Windows.Forms.CheckBox();
+            this.checkRenderTarget = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSFX)).BeginInit();
             this.GFXContainer.SuspendLayout();
@@ -338,7 +339,7 @@
             "None",
             "Environment",
             "Environment and Players",
-            "Everyghing",
+            "Everything",
             "Everything (Plus)",
             "Everything (Ultra)"});
             this.comboShadows.Location = new System.Drawing.Point(6, 88);
@@ -518,6 +519,18 @@
             this.toolTip.SetToolTip(this.comboReShade, "Sets the distance you can view far away.");
             this.comboReShade.SelectedIndexChanged += new System.EventHandler(this.comboReShade_SelectedIndexChanged);
             // 
+            // checkDiscord
+            // 
+            this.checkDiscord.AutoSize = true;
+            this.checkDiscord.Location = new System.Drawing.Point(184, 92);
+            this.checkDiscord.Name = "checkDiscord";
+            this.checkDiscord.Size = new System.Drawing.Size(130, 18);
+            this.checkDiscord.TabIndex = 28;
+            this.checkDiscord.Text = "Discord Integration";
+            this.toolTip.SetToolTip(this.checkDiscord, "When active, Discord will show to others when you\'re in game");
+            this.checkDiscord.UseVisualStyleBackColor = true;
+            this.checkDiscord.CheckedChanged += new System.EventHandler(this.checkDiscord_CheckedChanged);
+            // 
             // GFXContainer
             // 
             this.GFXContainer.Controls.Add(this.checkHFR);
@@ -564,6 +577,7 @@
             // 
             // gameContainer
             // 
+            this.gameContainer.Controls.Add(this.checkRenderTarget);
             this.gameContainer.Controls.Add(this.checkDiscord);
             this.gameContainer.Controls.Add(this.checkLightMode);
             this.gameContainer.Controls.Add(this.checkShowname);
@@ -598,17 +612,18 @@
             this.advContainer.TabStop = false;
             this.advContainer.Text = "Advanced";
             // 
-            // checkDiscord
+            // checkRenderTarget
             // 
-            this.checkDiscord.AutoSize = true;
-            this.checkDiscord.Location = new System.Drawing.Point(184, 92);
-            this.checkDiscord.Name = "checkDiscord";
-            this.checkDiscord.Size = new System.Drawing.Size(130, 18);
-            this.checkDiscord.TabIndex = 28;
-            this.checkDiscord.Text = "Discord Integration";
-            this.toolTip.SetToolTip(this.checkDiscord, "When active, Discord will show to others when you\'re in game");
-            this.checkDiscord.UseVisualStyleBackColor = true;
-            this.checkDiscord.CheckedChanged += new System.EventHandler(this.checkDiscord_CheckedChanged);
+            this.checkRenderTarget.AutoSize = true;
+            this.checkRenderTarget.Location = new System.Drawing.Point(6, 120);
+            this.checkRenderTarget.Name = "checkRenderTarget";
+            this.checkRenderTarget.Size = new System.Drawing.Size(114, 18);
+            this.checkRenderTarget.TabIndex = 29;
+            this.checkRenderTarget.Text = "Enable Previews";
+            this.toolTip.SetToolTip(this.checkRenderTarget, "When active some quests will show monster previews and some vendors will shop ite" +
+        "m previews. Disable it if you\'re having issues");
+            this.checkRenderTarget.UseVisualStyleBackColor = true;
+            this.checkRenderTarget.CheckedChanged += new System.EventHandler(this.checkRenderTarget_CheckedChanged);
             // 
             // MainForm
             // 
@@ -690,6 +705,7 @@
         private System.Windows.Forms.ComboBox comboReShade;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkDiscord;
+        private System.Windows.Forms.CheckBox checkRenderTarget;
     }
 }
 

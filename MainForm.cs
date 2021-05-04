@@ -95,7 +95,8 @@ namespace Config
 
                 checkDisableLod.Checked = _conf.Read("DISABLE_LOD", false);
 
-            checkDiscord.Checked = _conf.Read("DISCORD_INTEGRATION", true);
+                checkDiscord.Checked = _conf.Read("DISCORD_INTEGRATION", true);
+                checkRenderTarget.Checked = _conf.Read("RENDER_TARGET", true);
 
                 Utils.Utils.SafeSetIndex(comboReShade, _conf.Read("RESHADE_LEVEL", 0));
 #if !DEBUG
@@ -300,14 +301,14 @@ namespace Config
 
         bool IsReshadeEnabled()
         {
-            return File.Exists("d3d9.dll") && File.Exists("ReShade.ini");
+            return File.Exists("d3d9.dll")  ;
         }
 
         void EnableReshade()
         {
-            if(File.Exists("_d3d9.dll"))
+            if(File.Exists("_d3d9.dll") && !File.Exists("d3d9.dll"))
                 File.Copy("_d3d9.dll", "d3d9.dll");
-            if (File.Exists("_ReShade.ini"))
+            if (File.Exists("_ReShade.ini") && !File.Exists("ReShade.ini"))
                 File.Copy("_ReShade.ini", "ReShade.ini");
 
         }
@@ -368,6 +369,10 @@ namespace Config
             }
         }
 
-
+        private void checkRenderTarget_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("RENDER_TARGET", checkRenderTarget.Checked);
+        }
     }
 }
