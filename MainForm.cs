@@ -97,6 +97,8 @@ namespace Config
 
                 checkDiscord.Checked = _conf.Read("DISCORD_INTEGRATION", true);
                 checkRenderTarget.Checked = _conf.Read("RENDER_TARGET", true);
+                checkYangQuantity.Checked = _conf.Read("YANG_QUANTITY", true);
+                checkItemQuantity.Checked = _conf.Read("ITEM_QUANTITY", true);
 
                 Utils.Utils.SafeSetIndex(comboReShade, _conf.Read("RESHADE_LEVEL", 0));
 #if !DEBUG
@@ -377,5 +379,17 @@ namespace Config
                 _conf.Write("ALWAYS_VIEW_NAME", comboShowName.SelectedIndex);
         
          }
+
+        private void checkYangQuantity_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("YANG_QUANTITY", checkYangQuantity.Checked);
+        }
+
+        private void checkItemQuantity_CheckedChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("ITEM_QUANTITY", checkItemQuantity.Checked);
+        }
     }
 }

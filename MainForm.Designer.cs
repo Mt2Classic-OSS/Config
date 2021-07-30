@@ -64,14 +64,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboReShade = new System.Windows.Forms.ComboBox();
             this.checkDiscord = new System.Windows.Forms.CheckBox();
+            this.checkRenderTarget = new System.Windows.Forms.CheckBox();
+            this.labelShowName = new System.Windows.Forms.Label();
+            this.comboShowName = new System.Windows.Forms.ComboBox();
             this.GFXContainer = new System.Windows.Forms.GroupBox();
             this.audioContainer = new System.Windows.Forms.GroupBox();
             this.GFXContainer2 = new System.Windows.Forms.GroupBox();
             this.gameContainer = new System.Windows.Forms.GroupBox();
             this.advContainer = new System.Windows.Forms.GroupBox();
-            this.checkRenderTarget = new System.Windows.Forms.CheckBox();
-            this.labelShowName = new System.Windows.Forms.Label();
-            this.comboShowName = new System.Windows.Forms.ComboBox();
+            this.checkYangQuantity = new System.Windows.Forms.CheckBox();
+            this.checkItemQuantity = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSFX)).BeginInit();
             this.GFXContainer.SuspendLayout();
@@ -520,6 +522,45 @@
             this.checkDiscord.UseVisualStyleBackColor = true;
             this.checkDiscord.CheckedChanged += new System.EventHandler(this.checkDiscord_CheckedChanged);
             // 
+            // checkRenderTarget
+            // 
+            this.checkRenderTarget.AutoSize = true;
+            this.checkRenderTarget.Location = new System.Drawing.Point(6, 94);
+            this.checkRenderTarget.Name = "checkRenderTarget";
+            this.checkRenderTarget.Size = new System.Drawing.Size(114, 18);
+            this.checkRenderTarget.TabIndex = 29;
+            this.checkRenderTarget.Text = "Enable Previews";
+            this.toolTip.SetToolTip(this.checkRenderTarget, "When active some quests will show monster previews and some vendors will shop ite" +
+        "m previews. Disable it if you\'re having issues");
+            this.checkRenderTarget.UseVisualStyleBackColor = true;
+            this.checkRenderTarget.CheckedChanged += new System.EventHandler(this.checkRenderTarget_CheckedChanged);
+            // 
+            // labelShowName
+            // 
+            this.labelShowName.AutoSize = true;
+            this.labelShowName.Location = new System.Drawing.Point(6, 156);
+            this.labelShowName.Name = "labelShowName";
+            this.labelShowName.Size = new System.Drawing.Size(72, 14);
+            this.labelShowName.TabIndex = 21;
+            this.labelShowName.Text = "Show name";
+            this.toolTip.SetToolTip(this.labelShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
+            // 
+            // comboShowName
+            // 
+            this.comboShowName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboShowName.FormattingEnabled = true;
+            this.comboShowName.Items.AddRange(new object[] {
+            "Off",
+            "On",
+            "Extra"});
+            this.comboShowName.Location = new System.Drawing.Point(6, 176);
+            this.comboShowName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboShowName.Name = "comboShowName";
+            this.comboShowName.Size = new System.Drawing.Size(181, 22);
+            this.comboShowName.TabIndex = 20;
+            this.toolTip.SetToolTip(this.comboShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
+            this.comboShowName.SelectedIndexChanged += new System.EventHandler(this.comboShowName_SelectedIndexChanged);
+            // 
             // GFXContainer
             // 
             this.GFXContainer.Controls.Add(this.checkHFR);
@@ -544,7 +585,7 @@
             this.audioContainer.Controls.Add(this.labelSFX);
             this.audioContainer.Location = new System.Drawing.Point(12, 191);
             this.audioContainer.Name = "audioContainer";
-            this.audioContainer.Size = new System.Drawing.Size(298, 150);
+            this.audioContainer.Size = new System.Drawing.Size(298, 182);
             this.audioContainer.TabIndex = 3;
             this.audioContainer.TabStop = false;
             this.audioContainer.Text = "Sound";
@@ -566,6 +607,8 @@
             // 
             // gameContainer
             // 
+            this.gameContainer.Controls.Add(this.checkYangQuantity);
+            this.gameContainer.Controls.Add(this.checkItemQuantity);
             this.gameContainer.Controls.Add(this.labelShowName);
             this.gameContainer.Controls.Add(this.checkRenderTarget);
             this.gameContainer.Controls.Add(this.comboShowName);
@@ -578,7 +621,7 @@
             this.gameContainer.Controls.Add(this.checkDaylight);
             this.gameContainer.Location = new System.Drawing.Point(316, 162);
             this.gameContainer.Name = "gameContainer";
-            this.gameContainer.Size = new System.Drawing.Size(375, 179);
+            this.gameContainer.Size = new System.Drawing.Size(375, 211);
             this.gameContainer.TabIndex = 27;
             this.gameContainer.TabStop = false;
             this.gameContainer.Text = "Game";
@@ -595,57 +638,42 @@
             this.advContainer.Controls.Add(this.checkDefaultIME);
             this.advContainer.Controls.Add(this.checkBpp);
             this.advContainer.Controls.Add(this.checkSoftwarecursor);
-            this.advContainer.Location = new System.Drawing.Point(12, 347);
+            this.advContainer.Location = new System.Drawing.Point(12, 379);
             this.advContainer.Name = "advContainer";
-            this.advContainer.Size = new System.Drawing.Size(679, 139);
+            this.advContainer.Size = new System.Drawing.Size(679, 135);
             this.advContainer.TabIndex = 28;
             this.advContainer.TabStop = false;
             this.advContainer.Text = "Advanced";
             // 
-            // checkRenderTarget
+            // checkYangQuantity
             // 
-            this.checkRenderTarget.AutoSize = true;
-            this.checkRenderTarget.Location = new System.Drawing.Point(6, 94);
-            this.checkRenderTarget.Name = "checkRenderTarget";
-            this.checkRenderTarget.Size = new System.Drawing.Size(114, 18);
-            this.checkRenderTarget.TabIndex = 29;
-            this.checkRenderTarget.Text = "Enable Previews";
-            this.toolTip.SetToolTip(this.checkRenderTarget, "When active some quests will show monster previews and some vendors will shop ite" +
-        "m previews. Disable it if you\'re having issues");
-            this.checkRenderTarget.UseVisualStyleBackColor = true;
-            this.checkRenderTarget.CheckedChanged += new System.EventHandler(this.checkRenderTarget_CheckedChanged);
+            this.checkYangQuantity.AutoSize = true;
+            this.checkYangQuantity.Location = new System.Drawing.Point(6, 118);
+            this.checkYangQuantity.Name = "checkYangQuantity";
+            this.checkYangQuantity.Size = new System.Drawing.Size(156, 18);
+            this.checkYangQuantity.TabIndex = 31;
+            this.checkYangQuantity.Text = "Dropped Yang Quantity";
+            this.toolTip.SetToolTip(this.checkYangQuantity, "Yang on the ground will show their amount");
+            this.checkYangQuantity.UseVisualStyleBackColor = true;
+            this.checkYangQuantity.CheckedChanged += new System.EventHandler(this.checkYangQuantity_CheckedChanged);
             // 
-            // labelShowName
+            // checkItemQuantity
             // 
-            this.labelShowName.AutoSize = true;
-            this.labelShowName.Location = new System.Drawing.Point(6, 121);
-            this.labelShowName.Name = "labelShowName";
-            this.labelShowName.Size = new System.Drawing.Size(72, 14);
-            this.labelShowName.TabIndex = 21;
-            this.labelShowName.Text = "Show name";
-            this.toolTip.SetToolTip(this.labelShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
-            // 
-            // comboShowName
-            // 
-            this.comboShowName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboShowName.FormattingEnabled = true;
-            this.comboShowName.Items.AddRange(new object[] {
-            "Off",
-            "On",
-            "Extra"});
-            this.comboShowName.Location = new System.Drawing.Point(6, 141);
-            this.comboShowName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboShowName.Name = "comboShowName";
-            this.comboShowName.Size = new System.Drawing.Size(181, 22);
-            this.comboShowName.TabIndex = 20;
-            this.toolTip.SetToolTip(this.comboShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
-            this.comboShowName.SelectedIndexChanged += new System.EventHandler(this.comboShowName_SelectedIndexChanged);
+            this.checkItemQuantity.AutoSize = true;
+            this.checkItemQuantity.Location = new System.Drawing.Point(184, 116);
+            this.checkItemQuantity.Name = "checkItemQuantity";
+            this.checkItemQuantity.Size = new System.Drawing.Size(154, 18);
+            this.checkItemQuantity.TabIndex = 30;
+            this.checkItemQuantity.Text = "Dropped Item Quantity";
+            this.toolTip.SetToolTip(this.checkItemQuantity, "Items on the ground will show their amount");
+            this.checkItemQuantity.UseVisualStyleBackColor = true;
+            this.checkItemQuantity.CheckedChanged += new System.EventHandler(this.checkItemQuantity_CheckedChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(696, 498);
+            this.ClientSize = new System.Drawing.Size(696, 526);
             this.Controls.Add(this.advContainer);
             this.Controls.Add(this.gameContainer);
             this.Controls.Add(this.GFXContainer2);
@@ -723,6 +751,8 @@
         private System.Windows.Forms.CheckBox checkRenderTarget;
         private System.Windows.Forms.Label labelShowName;
         private System.Windows.Forms.ComboBox comboShowName;
+        private System.Windows.Forms.CheckBox checkYangQuantity;
+        private System.Windows.Forms.CheckBox checkItemQuantity;
     }
 }
 
