@@ -89,7 +89,7 @@ namespace Config
                 // DLC
                 checkDaylight.Checked = _conf.Read("DAY_CYCLE", true);
                 // Light
-                checkLightMode.Checked = _conf.Read("LIGHT_MODE", false);
+                Utils.Utils.SafeSetIndex(comboLightMode, _conf.Read("LIGHT_MODE", 0));
 
                 checkFastText.Checked = _conf.Read("FAST_FONT", false);
 
@@ -264,11 +264,7 @@ namespace Config
 
         }
 
-        private void checkLightMode_CheckedChanged(object sender, EventArgs e)
-        {
-            if (_ready)
-                _conf.Write("LIGHT_MODE", checkLightMode.Checked);
-        }
+
 
         private void checkFastText_CheckedChanged(object sender, EventArgs e)
         {
@@ -390,6 +386,13 @@ namespace Config
         {
             if (_ready)
                 _conf.Write("ITEM_QUANTITY", checkItemQuantity.Checked);
+        }
+
+        private void comboLightMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_ready)
+                _conf.Write("LIGHT_MODE", comboLightMode.SelectedIndex);
+
         }
     }
 }

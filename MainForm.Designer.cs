@@ -58,7 +58,6 @@
             this.checkHFR = new System.Windows.Forms.CheckBox();
             this.comboTNL = new System.Windows.Forms.ComboBox();
             this.labelTNL = new System.Windows.Forms.Label();
-            this.checkLightMode = new System.Windows.Forms.CheckBox();
             this.checkFastText = new System.Windows.Forms.CheckBox();
             this.checkDisableLod = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,13 +66,15 @@
             this.checkRenderTarget = new System.Windows.Forms.CheckBox();
             this.labelShowName = new System.Windows.Forms.Label();
             this.comboShowName = new System.Windows.Forms.ComboBox();
+            this.checkYangQuantity = new System.Windows.Forms.CheckBox();
+            this.checkItemQuantity = new System.Windows.Forms.CheckBox();
             this.GFXContainer = new System.Windows.Forms.GroupBox();
             this.audioContainer = new System.Windows.Forms.GroupBox();
             this.GFXContainer2 = new System.Windows.Forms.GroupBox();
             this.gameContainer = new System.Windows.Forms.GroupBox();
             this.advContainer = new System.Windows.Forms.GroupBox();
-            this.checkYangQuantity = new System.Windows.Forms.CheckBox();
-            this.checkItemQuantity = new System.Windows.Forms.CheckBox();
+            this.labelLightMode = new System.Windows.Forms.Label();
+            this.comboLightMode = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackMusic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackSFX)).BeginInit();
             this.GFXContainer.SuspendLayout();
@@ -444,18 +445,6 @@
         " graphical issues.");
             this.labelTNL.Click += new System.EventHandler(this.labelTNL_Click);
             // 
-            // checkLightMode
-            // 
-            this.checkLightMode.AutoSize = true;
-            this.checkLightMode.Location = new System.Drawing.Point(6, 70);
-            this.checkLightMode.Name = "checkLightMode";
-            this.checkLightMode.Size = new System.Drawing.Size(88, 18);
-            this.checkLightMode.TabIndex = 27;
-            this.checkLightMode.Text = "Light mode";
-            this.toolTip.SetToolTip(this.checkLightMode, "When active, every map will be light and clear as day.");
-            this.checkLightMode.UseVisualStyleBackColor = true;
-            this.checkLightMode.CheckedChanged += new System.EventHandler(this.checkLightMode_CheckedChanged);
-            // 
             // checkFastText
             // 
             this.checkFastText.AutoSize = true;
@@ -525,7 +514,7 @@
             // checkRenderTarget
             // 
             this.checkRenderTarget.AutoSize = true;
-            this.checkRenderTarget.Location = new System.Drawing.Point(6, 94);
+            this.checkRenderTarget.Location = new System.Drawing.Point(6, 70);
             this.checkRenderTarget.Name = "checkRenderTarget";
             this.checkRenderTarget.Size = new System.Drawing.Size(114, 18);
             this.checkRenderTarget.TabIndex = 29;
@@ -556,10 +545,34 @@
             this.comboShowName.Location = new System.Drawing.Point(6, 176);
             this.comboShowName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboShowName.Name = "comboShowName";
-            this.comboShowName.Size = new System.Drawing.Size(181, 22);
+            this.comboShowName.Size = new System.Drawing.Size(153, 22);
             this.comboShowName.TabIndex = 20;
             this.toolTip.SetToolTip(this.comboShowName, "Decide what draws a shadow. Will hinder performance on older machines.");
             this.comboShowName.SelectedIndexChanged += new System.EventHandler(this.comboShowName_SelectedIndexChanged);
+            // 
+            // checkYangQuantity
+            // 
+            this.checkYangQuantity.AutoSize = true;
+            this.checkYangQuantity.Location = new System.Drawing.Point(6, 94);
+            this.checkYangQuantity.Name = "checkYangQuantity";
+            this.checkYangQuantity.Size = new System.Drawing.Size(156, 18);
+            this.checkYangQuantity.TabIndex = 31;
+            this.checkYangQuantity.Text = "Dropped Yang Quantity";
+            this.toolTip.SetToolTip(this.checkYangQuantity, "Yang on the ground will show their amount");
+            this.checkYangQuantity.UseVisualStyleBackColor = true;
+            this.checkYangQuantity.CheckedChanged += new System.EventHandler(this.checkYangQuantity_CheckedChanged);
+            // 
+            // checkItemQuantity
+            // 
+            this.checkItemQuantity.AutoSize = true;
+            this.checkItemQuantity.Location = new System.Drawing.Point(6, 116);
+            this.checkItemQuantity.Name = "checkItemQuantity";
+            this.checkItemQuantity.Size = new System.Drawing.Size(154, 18);
+            this.checkItemQuantity.TabIndex = 30;
+            this.checkItemQuantity.Text = "Dropped Item Quantity";
+            this.toolTip.SetToolTip(this.checkItemQuantity, "Items on the ground will show their amount");
+            this.checkItemQuantity.UseVisualStyleBackColor = true;
+            this.checkItemQuantity.CheckedChanged += new System.EventHandler(this.checkItemQuantity_CheckedChanged);
             // 
             // GFXContainer
             // 
@@ -607,13 +620,14 @@
             // 
             // gameContainer
             // 
+            this.gameContainer.Controls.Add(this.labelLightMode);
+            this.gameContainer.Controls.Add(this.comboLightMode);
             this.gameContainer.Controls.Add(this.checkYangQuantity);
             this.gameContainer.Controls.Add(this.checkItemQuantity);
             this.gameContainer.Controls.Add(this.labelShowName);
             this.gameContainer.Controls.Add(this.checkRenderTarget);
             this.gameContainer.Controls.Add(this.comboShowName);
             this.gameContainer.Controls.Add(this.checkDiscord);
-            this.gameContainer.Controls.Add(this.checkLightMode);
             this.gameContainer.Controls.Add(this.checkShowDmg);
             this.gameContainer.Controls.Add(this.checkShowChat);
             this.gameContainer.Controls.Add(this.checkShowshopnames);
@@ -645,29 +659,31 @@
             this.advContainer.TabStop = false;
             this.advContainer.Text = "Advanced";
             // 
-            // checkYangQuantity
+            // labelLightMode
             // 
-            this.checkYangQuantity.AutoSize = true;
-            this.checkYangQuantity.Location = new System.Drawing.Point(6, 118);
-            this.checkYangQuantity.Name = "checkYangQuantity";
-            this.checkYangQuantity.Size = new System.Drawing.Size(156, 18);
-            this.checkYangQuantity.TabIndex = 31;
-            this.checkYangQuantity.Text = "Dropped Yang Quantity";
-            this.toolTip.SetToolTip(this.checkYangQuantity, "Yang on the ground will show their amount");
-            this.checkYangQuantity.UseVisualStyleBackColor = true;
-            this.checkYangQuantity.CheckedChanged += new System.EventHandler(this.checkYangQuantity_CheckedChanged);
+            this.labelLightMode.AutoSize = true;
+            this.labelLightMode.Location = new System.Drawing.Point(215, 156);
+            this.labelLightMode.Name = "labelLightMode";
+            this.labelLightMode.Size = new System.Drawing.Size(68, 14);
+            this.labelLightMode.TabIndex = 33;
+            this.labelLightMode.Text = "Light Mode";
+            this.toolTip.SetToolTip(this.labelLightMode, "Decide what draws a shadow. Will hinder performance on older machines.");
             // 
-            // checkItemQuantity
+            // comboLightMode
             // 
-            this.checkItemQuantity.AutoSize = true;
-            this.checkItemQuantity.Location = new System.Drawing.Point(184, 116);
-            this.checkItemQuantity.Name = "checkItemQuantity";
-            this.checkItemQuantity.Size = new System.Drawing.Size(154, 18);
-            this.checkItemQuantity.TabIndex = 30;
-            this.checkItemQuantity.Text = "Dropped Item Quantity";
-            this.toolTip.SetToolTip(this.checkItemQuantity, "Items on the ground will show their amount");
-            this.checkItemQuantity.UseVisualStyleBackColor = true;
-            this.checkItemQuantity.CheckedChanged += new System.EventHandler(this.checkItemQuantity_CheckedChanged);
+            this.comboLightMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLightMode.FormattingEnabled = true;
+            this.comboLightMode.Items.AddRange(new object[] {
+            "Regular",
+            "Always Light",
+            "Always Dark"});
+            this.comboLightMode.Location = new System.Drawing.Point(215, 176);
+            this.comboLightMode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboLightMode.Name = "comboLightMode";
+            this.comboLightMode.Size = new System.Drawing.Size(153, 22);
+            this.comboLightMode.TabIndex = 32;
+            this.toolTip.SetToolTip(this.comboLightMode, "Regular: No changes\r\nLight: Always daylight\r\nNight: Always night");
+            this.comboLightMode.SelectedIndexChanged += new System.EventHandler(this.comboLightMode_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -741,7 +757,6 @@
         private System.Windows.Forms.ComboBox comboTNL;
         private System.Windows.Forms.Label labelTNL;
         private System.Windows.Forms.GroupBox gameContainer;
-        private System.Windows.Forms.CheckBox checkLightMode;
         private System.Windows.Forms.GroupBox advContainer;
         private System.Windows.Forms.CheckBox checkFastText;
         private System.Windows.Forms.CheckBox checkDisableLod;
@@ -753,6 +768,8 @@
         private System.Windows.Forms.ComboBox comboShowName;
         private System.Windows.Forms.CheckBox checkYangQuantity;
         private System.Windows.Forms.CheckBox checkItemQuantity;
+        private System.Windows.Forms.Label labelLightMode;
+        private System.Windows.Forms.ComboBox comboLightMode;
     }
 }
 
